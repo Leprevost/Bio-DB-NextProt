@@ -10,7 +10,8 @@ WriteMakefile(
     ABSTRACT_FROM    => 'lib/Bio/DB/NextProt.pm',
     LICENSE          => 'perl',
     PL_FILES         => {},
-    MIN_PERL_VERSION => 5.10,
+    MIN_PERL_VERSION => 5.012000,
+    REPOSITORY       => 'https://github.com/Leprevost/Bio-DB-NextProt.git',
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => 0,
     },

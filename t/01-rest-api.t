@@ -1,16 +1,15 @@
-#!perl -T
-use 5.006;
 use strict;
 use warnings FATAL => 'all';
 use Test::More;
 use REST::Client;
+use Bio::DB::NextProt;
 
 plan tests => 5;
 
 #connection objects
 my ($np, $rest);
 
-ok ( $np = Bio::DB::NextProt->new(), "testing constructor" );
+ok( $np = Bio::DB::NextProt->new(), "testing constructor" );
 $rest = REST::Client->new({host=> "http://www.nextprot.org", timeout => 10,});
 
 # search functionalities
@@ -35,4 +34,4 @@ is( @res_e, @res_f );
 my (@res_g, @res_h);
 @res_g = $rest->GET('/rest/cv/PTM-0205/proteins&format=json');
 @res_h = $np->get_protein_cv_info(-query => "PTM-0205", -retrieve => "proteins");
-is ( @res_g, @res_h );
+is( @res_g, @res_h );
